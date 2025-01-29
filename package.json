@@ -1,6 +1,6 @@
 {
-  "name": "Amallo",
-  "version": "0.0.1",
+  "name": "amallo",
+  "version": "0.0.2",
   "description": "Thin Ollama API wrapper.",
   "main": "amallo.mjs",
   "scripts": {
@@ -8,5 +8,12 @@
   },
   "author": "thot_experiment",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "keywords": [
+    "ollama",
+    "promise",
+    "streaming",
+    "minimal",
+    "lightweight"
+  ]
 }
