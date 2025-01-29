@@ -1,5 +1,5 @@
 # Amallo
-Amallo is a thin wrapper for the [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md). There is an [official wrapper](https://github.com/ollama/ollama-js) that is probably more robust.  This is a single JS file that works in the Browser, Node, Deno, and Bun and has code ergonomics I particularly like. It is current as of [v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7).
+Amallo is a thin wrapper for the [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md). There is an [official wrapper](https://github.com/ollama/ollama-js) that is ~~probably~~ definitely more robust.  This is a single JS file that works in the Browser, Node, Deno, and Bun and has code ergonomics I particularly like. It is current as of [v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7).
 
 ### Installation
 
