@@ -1,0 +1,12 @@
+{
+  "name": "Amallo",
+  "version": "0.0.1",
+  "description": "Thin Ollama API wrapper.",
+  "main": "amallo.mjs",
+  "scripts": {
+    "test": "node tests/test.mjs"
+  },
+  "author": "thot_experiment",
+  "license": "MIT",
+  "dependencies": {}
+}
