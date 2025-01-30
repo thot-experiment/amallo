@@ -1,5 +1,5 @@
 # Amallo
-Amallo is a thin wrapper for the [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md). There is an [official wrapper](https://github.com/ollama/ollama-js) that is ~~probably~~ definitely more robust.  This is a single JS file that works in the Browser, Node, Deno, and Bun and has code ergonomics I particularly like. It is current as of [v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7).
+Amallo is a thin wrapper for the [Ollama API](https://github.com/ollama/ollama/blob/main/docs/api.md). There is an [official wrapper](https://github.com/ollama/ollama-js) that is ~~probably~~ definitely more robust.  This is a single JS file that works in the Browser, Node, Deno, and Bun and has ergonomics I particularly like. It is current as of Ollama [v0.5.7](https://github.com/ollama/ollama/releases/tag/v0.5.7).
 
 
 ### Installation
@@ -67,7 +67,7 @@ amallo.url = 'https://ollama.runninginthe.cloud:1337'
 amallo.model = 'MidnightMiqu70b:iq3_xxs'
 ```
 All methods default to a streaming request if possible, `stream` must manually be set to `false` in the request to avoid this behavior. You can set `.onchunk` if you want to process the raw response chunks as they come in, `.ontoken` for token strings.
-##### [`.generate( promptstring | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-completion)
+##### [`.generate( prompt_string | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-a-completion)
 ```js
 const generation = amallo.generate({prompt: 'Can you please tell me a joke?'})
 let response = ''
@@ -92,11 +92,12 @@ console.log(generated.messages.at(-1))
 Returns an array of models currently available.
 ##### [`.ps()`](https://github.com/ollama/ollama/blob/main/docs/api.md#list-running-models)
 Returns an array of models currently running.
-##### [`.show( modelnamestring | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#show-model-information)
+##### [`.show( model_name_string | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#show-model-information)
 Shows the model info, specifying the model is optional, and if omitted it returns the info for the instance model.
-##### [`.stop( modelnamestring | request_object )`](https://github.com/ollama/ollama/blob/main/README.md#stop-a-model-which-is-currently-running)
+##### [`.stop( model_name_string | request_object )`](https://github.com/ollama/ollama/blob/main/README.md#stop-a-model-which-is-currently-running)
 This isn't an official API endpoint, but it's a wrapper that works the exact same way as `ollama stop modelname` when using the CLI. 
-Like `.show()` the model is optional.
+Like `.show()` the model is optional, if omitted the instance model is stopped.
+n.b. This will return *before* the model is fully unloaded, the latency isn't large but it's something to beware of.
 ```js
 await amallo.stop('llama3.2:latest')
 ```
@@ -105,15 +106,8 @@ await amallo.stop('llama3.2:latest')
 await amallo.version()
 > '0.5.7'
 ```
-##### [`.embed( request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-embeddings)
+##### [`.embed( string_to_embed | array_of_strings | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-embeddings)
 Generate embeddings for a text or list of texts. 
-
-{
-  model: 'mxbai-embed-large:latest',
-  embeddings: [
-    [
-        0.0023925733,   -0.002332235,   0.0019751415,   -0.012774734,
-          0.03678523,   0.0022481799,    0.009066204,   -0.014861294,
 
 #### Additional Methods
 I haven't ever needed to use these methods so I haven't bothered to test them. Since this just wraps the relevant API endpoints in a very transparent way all of these probably work fine.
