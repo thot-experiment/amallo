@@ -110,12 +110,12 @@ await amallo.version()
 Generate embeddings for a text or list of texts. 
 
 #### Additional Methods
-I haven't ever needed to use these methods so I haven't bothered to test them. Since this just wraps the relevant API endpoints in a very transparent way all of these probably work fine.
-##### [`.copy()`](https://github.com/ollama/ollama/blob/main/docs/api.md#copy-a-model)
-##### [`.delete()`](https://github.com/ollama/ollama/blob/main/docs/api.md#delete-a-model)
-##### [`.create()`](https://github.com/ollama/ollama/blob/main/docs/api.md#create-a-model)
-##### [`.pull()`](https://github.com/ollama/ollama/blob/main/docs/api.md#pull-a-model)
-##### [`.push()`](https://github.com/ollama/ollama/blob/main/docs/api.md#push-a-model)
+I haven't ever needed to use these methods so I haven't bothered to test them. Since this just wraps the relevant API endpoints in a very transparent way all of these probably work fine (except maybe `push` I'd be wary of that one).
+##### [`.copy( request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#copy-a-model)
+##### [`.delete( model_name_string | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#delete-a-model)
+##### [`.create( request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#create-a-model)
+##### [`.pull( model_name_string | request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#pull-a-model)
+##### [`.push( request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#push-a-model)
 
 
 
