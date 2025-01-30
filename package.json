@@ -1,6 +1,6 @@
 {
   "name": "amallo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Thin Ollama API wrapper.",
   "main": "amallo.mjs",
   "scripts": {
