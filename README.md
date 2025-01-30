@@ -105,7 +105,15 @@ await amallo.stop('llama3.2:latest')
 await amallo.version()
 > '0.5.7'
 ```
-##### [`.embeddings()`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-embeddings)
+##### [`.embed( request_object )`](https://github.com/ollama/ollama/blob/main/docs/api.md#generate-embeddings)
+Generate embeddings for a text or list of texts. 
+
+{
+  model: 'mxbai-embed-large:latest',
+  embeddings: [
+    [
+        0.0023925733,   -0.002332235,   0.0019751415,   -0.012774734,
+          0.03678523,   0.0022481799,    0.009066204,   -0.014861294,
 
 #### Additional Methods
 I haven't ever needed to use these methods so I haven't bothered to test them. Since this just wraps the relevant API endpoints in a very transparent way all of these probably work fine.

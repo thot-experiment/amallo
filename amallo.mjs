@@ -167,8 +167,9 @@ const Amallo = (model='deepseek-r1:1.5b',url='http://localhost:11434') => {
     //console.log(options)
     return cje_agnostic(url+'/api/chat',chat_chunker)(options)
   }
-  const embeddings = options => {
-    call_JSON_endpoint(url+'/api/embeddings')
+  const embed = options => {
+    if (typeof options == 'string' || Array.isArray(options)) options = {input:options}
+    return call_JSON_endpoint(url+'/api/embed')(Object.assign({model},options))
   }
   const stop = (options={}) => {
     if (typeof options == 'string') options = {model:options}
@@ -188,7 +189,6 @@ const Amallo = (model='deepseek-r1:1.5b',url='http://localhost:11434') => {
     if (typeof options == 'string') options = {name:options}
     return call_JSON_endpoint(url+'/api/show')(Object.assign({name:model},options))
   }
-
   const create = cje_agnostic(url+'/api/create')
   const copy = call_JSON_endpoint(url+'/api/copy')
   const version = () => call_JSON_endpoint(url+'/api/version')().then(r => r.version)
@@ -225,7 +225,7 @@ const Amallo = (model='deepseek-r1:1.5b',url='http://localhost:11434') => {
 
     //gets the embedding for a string, overloaded (can take string or object)
     //and gets default model if none is passed
-    embeddings,
+    embed,
 
     //see api docs
     create, copy, 
